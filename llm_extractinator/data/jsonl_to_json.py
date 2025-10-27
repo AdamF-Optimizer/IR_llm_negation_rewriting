@@ -18,5 +18,5 @@ def convert_all_jsonl_to_json(dir_path):
             print(f"Converted {filename} -> {os.path.basename(json_path)}")
 
 # Example usage:
-directory = 'QUEST/data'
+directory = 'data'
 convert_all_jsonl_to_json(directory)

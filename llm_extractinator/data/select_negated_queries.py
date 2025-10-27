@@ -1,10 +1,19 @@
 import json
 import math
+import re
 
 def clean_nan(value):
     if isinstance(value, float) and math.isnan(value):
         return None
     return value
+
+
+def remove_mark_tags(text):
+    if not isinstance(text, str):
+        return text
+    # Remove <mark> and </mark> tags
+    return re.sub(r'</?mark>', '', text)
+
 
 def clean_object(obj):
     # Recursively clean object to replace NaN with None
@@ -23,8 +32,13 @@ def filter_negated_queries(input_file, output_file):
     # Filter for objects where is_negated is True
     filtered_data = []
     for obj in data:
-        if obj.get("is_negated") is True:
+        if obj.get("is_negated") == True and obj.get("metadata", {}).get("relevance_ratings") != None:
             cleaned_obj = clean_object(obj)
+            cleaned_obj["original_query_cleaned"] = remove_mark_tags(obj["original_query"])
+            if cleaned_obj["original_query_cleaned"] == "":
+                print("Empty cleaned query found!")
+            
+            # print(cleaned_obj.get("metadata", {}).get("relevance_ratings"))
             filtered_data.append(cleaned_obj)
 
 
