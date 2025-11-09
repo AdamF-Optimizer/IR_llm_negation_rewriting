@@ -1,6 +1,0 @@
-{
-    "Description": "You will be given a JSON object representing a query. Your task is to:\n\nAnalyze the text in the query field.\n\nDetect all types of negation present based on this taxonomy:\n\nSentential negation (e.g., \"not\", \"no\", \"never\")\n\nExclusionary negation (e.g., \"except\", \"besides\")\n\nAffixal negation (e.g., prefixes like \"un-\", \"dis-\")\n\nImplicit negation (verbs or words implying negation like \"deny\", \"refuse\")\n\nContrasting antonyms (pairs of antonyms implying negation)\n\nFor each negation detected, return:\n\nThe type name from the taxonomy\n\nThe character span in the query or document text (if applicable)\n\nA confidence score from 0 to 1 reflecting your certainty\n\nIndicate with a boolean flag is_negated if any negation is present.\n\nReturn:\n\nA list of detected negation types and related info\n\nThe boolean \"is_negated\" field\n\n A textual explanation of the negation(s) detected, if any",
-    "Data_Path": "test.json",
-    "Input_Field": "query",
-    "Parser_Format": "negation_parser.py"
-}

@@ -1,6 +1,0 @@
-{
-    "Description": "You are given a natural language search query that contain negations or exclusion phrases. Your task is to analyze the query and do the following: 1. If possible, rewrite the query so that no negation or exclusion terms remain, but the original intent and meaning is preserved (e.g., convert \"Bread not containing milk\" to \"Dairy-free bread\" or \"Vegan bread\"). 2. If a rewriting that removes negation without losing meaning is not possible, identify the exclusion criteria explicitly so it can be used to filter retrieved results after a broader query. For example, for \"Cities in Germany except for Berlin,\" rewrite the query as \"Cities in Germany,\" and specify the exclusion as \"Berlin.\" Respond ONLY in JSON format: {{ \"rewritten_query\": \"<rewritten positive query or original query>\", \"exclusion_criteria\": [\"<list of terms or phrases to exclude from results>\"], \"explanation\": \"<brief explanation of rewrite or filtering decision>\" }}",
-    "Data_Path": "test_negations.json",
-    "Input_Field": "query",
-    "Parser_Format": "negation_rewriting_parser.py"
-}
