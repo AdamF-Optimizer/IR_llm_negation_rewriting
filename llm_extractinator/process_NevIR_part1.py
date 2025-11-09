@@ -125,7 +125,7 @@ if TESTING_MODE:
     print("TESTING MODE ENABLED - Only 1 entry per dataset processed")
 print(f"Current directory: {os.getcwd()}")
 print(f"Created {i} task files")
-print("\nExtractinate commands to run from QUEST directory:")
+print("\nExtractinate commands to run from NevIR directory:")
 for task_num in range(0, i):
     print(f"  extractinate --task_id {task_num:03d} --model_name qwen3:8b --num_predict 4096 --overwrite")
 print("\nOutput will be found in: output/run/Task{XXX}-run0/nlp-predictions-dataset.json")
@@ -135,4 +135,5 @@ print("\nOutput will be found in: output/run/Task{XXX}-run0/nlp-predictions-data
 # Now run extractinate --task_id {task_id} --model_name qwen3:8b --num_predict 4096" for each task from within the NevIR folder.
 
 # At the end, the output can be found in NevIR/output/run/Task{task_id}-run0/nlp-predictions-dataset.json
+
 # Or, run process_NevIR_part2.py to collect and rename the outputs automatically.
